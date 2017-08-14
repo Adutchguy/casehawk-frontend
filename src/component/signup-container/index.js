@@ -5,6 +5,7 @@ import superagent from 'superagent';
 import * as util from '../../lib/util.js';
 import * as auth from '../../action/auth.js';
 import validator from 'validator';
+import EventForm from '../event-form';
 
 const Tooltip = props => {
   return (
@@ -126,6 +127,9 @@ export class SignupContainer extends React.Component {
 
           <button type="submit"> signup </button>
         </form>
+        <EventForm
+          buttonText='Add Event'
+        />
       </div>
     );
   }

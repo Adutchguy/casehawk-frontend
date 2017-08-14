@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import * as route from '../../action/route.js';
 import * as querystring from 'querystring';
+import EventForm from '../event-form';
 
 export class LandingContainer extends React.Component {
   render() {
@@ -9,6 +10,7 @@ export class LandingContainer extends React.Component {
       <div className="landing-container">
         <button onClick={this.props.goToLogin}> login </button>
         <button onClick={this.props.goToSignup}> signup </button>
+        <EventForm />
       </div>
     );
   }

@@ -20,9 +20,9 @@ class App extends React.Component {
       <div className="app">
         <header>
           <div className="toolbar">
-            <button onClick={this.toggleMenu} className="logo">
+            <h2 onClick={this.toggleMenu} className="logo">
 							Casehawk
-            </button>
+            </h2>
           </div>
           {util.renderIf(
             this.props.token,
