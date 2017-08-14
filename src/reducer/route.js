@@ -1,7 +1,7 @@
 export default (state = '/signup', { type, payload }) => {
   switch (type) {
   case 'LOGIN':
-    return '/chat';
+    return '/landing';
   case 'LOGOUT':
     return '/landing';
   case 'SWITCH_ROUTE':

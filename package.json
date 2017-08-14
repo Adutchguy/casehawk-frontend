@@ -6,8 +6,7 @@
 	"jest": {
 		"globals": {
 			"__DEBUG__": true,
-			"__API_URL__": false
-		},
+			"__API_URL__": true
 		"moduleNameMapper": {
 			"\\.(svg|eof|ttf|woff|woff2|scss|gif)$": "<rootDir>/src/__test__/lib/mock-asset.js"
 		}
