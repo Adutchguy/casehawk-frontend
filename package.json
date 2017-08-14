@@ -7,13 +7,14 @@
 		"globals": {
 			"__DEBUG__": true,
 			"__API_URL__": true
+		},
 		"moduleNameMapper": {
 			"\\.(svg|eof|ttf|woff|woff2|scss|gif)$": "<rootDir>/src/__test__/lib/mock-asset.js"
 		}
 	},
 	"scripts": {
 		"test": "jest",
-		"lint": "eslint .",
+		"lint": "eslint . --fix",
 		"build": "webpack",
 		"watch": "webpack-dev-server --inline --hot"
 	},
