@@ -12,8 +12,7 @@ export const logout = () => {
 };
 
 export const loginRequest = (user) => (dispatch) => {
-  return superagent.get(`${__API_URL__}/login`)
-    .withCredentials() // exchange cookeis
+  return superagent.get(`${__API_URL__}/api/signin`)
     .auth(user.username, user.password)
     .then(res => {
       let token = util.cookieFetch('X-Casehawk-Token');
@@ -25,8 +24,7 @@ export const loginRequest = (user) => (dispatch) => {
 };
 
 export const signupRequest = (user) => (dispatch) => {
-  return superagent.post(`${__API_URL__}/signup`)
-    .withCredentials() // exchange cookeis
+  return superagent.post(`${__API_URL__}/api/signup`)
     .send(user)
     .then(res => {
       let token = util.cookieFetch('X-Casehawk-Token');
