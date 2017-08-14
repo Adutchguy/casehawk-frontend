@@ -13,9 +13,9 @@ class EventForm extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  //componentDidUpdate(){
-  //console.log('PROFILE FORM STATE', this.state)
-  //}
+  componentDidUpdate(){
+    console.log('EVENT FORM STATE', this.state);
+  }
 
   componentWillReceiveProps(props){
     if(props.event)
@@ -57,7 +57,7 @@ class EventForm extends React.Component {
           name='allday'
           onChange={this.handleChange}
         />
-        
+
         <label htmlFor='start-date-time'> Start Date/Time: </label>
 
         <input

@@ -127,9 +127,6 @@ export class SignupContainer extends React.Component {
 
           <button type="submit"> signup </button>
         </form>
-        <EventForm
-          buttonText='Add Event'
-        />
       </div>
     );
   }
