@@ -5,7 +5,7 @@ import superagent from 'superagent';
 import * as util from '../../lib/util.js';
 import * as auth from '../../action/auth.js';
 
-class LoginContainer extends React.Component {
+class SigninContainer extends React.Component {
   constructor(props){
     super(props);
     this.state = {
@@ -18,7 +18,7 @@ class LoginContainer extends React.Component {
 
   handleSubmit(e){
     e.preventDefault();
-    return this.props.login({
+    return this.props.signin({
       username: this.state.username,
       password: this.state.password,
     });
@@ -31,7 +31,7 @@ class LoginContainer extends React.Component {
 
   render(){
     return(
-      <div className='login-container'>
+      <div className='signin-container'>
         <form onSubmit={this.handleSubmit}>
 
           <input
@@ -50,7 +50,7 @@ class LoginContainer extends React.Component {
             onChange={this.handleChange}
           />
 
-          <button type='submit'> login </button>
+          <button type='submit'> signin </button>
         </form>
       </div>
     );
@@ -61,7 +61,7 @@ export const mapStateToProps = (state) => ({
 });
 
 export const mapDispatchToProps = (dispatch) => ({
-  login: (user) => dispatch(auth.loginRequest(user)),
+  signin: (user) => dispatch(auth.signinRequest(user)),
 });
 
-export default connect (mapStateToProps, mapDispatchToProps)(LoginContainer);
+export default connect (mapStateToProps, mapDispatchToProps)(SigninContainer);

@@ -6,24 +6,20 @@ import * as auth from '../../action/auth';
 import * as route from '../../action/route';
 
 import LandingContainer from '../landing-container';
+import CalendarContainer from '../calendar-container';
 import SignupContainer from '../signup-container';
-import LoginContainer from '../login-container';
+import SigninContainer from '../signin-container';
 
 class App extends React.Component {
   componentDidMount() {
     let token = util.cookieFetch('X-Casehawk-Token');
-    if (token) this.props.login(token);
+    if (token) this.props.signin(token);
   }
 
   render() {
     return (
       <div className="app">
         <header>
-          <div className="toolbar">
-            <h2 onClick={this.toggleMenu} className="logo">
-							Casehawk
-            </h2>
-          </div>
           {util.renderIf(
             this.props.token,
             <div className="menu">
@@ -31,11 +27,13 @@ class App extends React.Component {
             </div>
           )}
         </header>
+        <CalendarContainer />
         <MemoryRouter>
           <Switch location={{ pathname: this.props.route }}>
+            <Route path="/calendar" component={CalendarContainer} />
             <Route path="/landing" component={LandingContainer} />
             <Route path="/signup" component={SignupContainer} />
-            <Route path="/login" component={LoginContainer} />
+            <Route path="/signin" component={SigninContainer} />
           </Switch>
         </MemoryRouter>
       </div>
@@ -50,7 +48,7 @@ let mapStateToProps = state => ({
 
 let mapDispatchToProps = dispatch => ({
   logout: () => dispatch(auth.logout()),
-  login: token => dispatch(auth.login(token)),
+  signin: token => dispatch(auth.signin(token)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
