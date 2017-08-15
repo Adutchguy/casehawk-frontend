@@ -7,9 +7,11 @@ export const eventCreate = (event) => ({
 });
 
 export const eventCreateRequest = (event) => (dispatch,getState) => {
-  let {auth} = getState();
+  let token = util.cookieFetch('X-Casehawk-Token');
   return superagent.post(`${__API_URL__}/api/events`)
-    .set('Authorization', `Bearer ${auth}`)
+    .withCredentials()
+    .set('Authorization', `Bearer ${token}`)
+    .then(console.log('event', event))
     .send(event)
     .then(res => {
       dispatch(eventCreate(res.body));
