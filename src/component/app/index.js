@@ -26,10 +26,10 @@ class App extends React.Component {
             this.props.token,
             <div className="menu">
               <button onClick={this.props.logout}> logout </button>
+              <button onClick={this.props.goToCalendar}> calendar </button>
             </div>
           )}
         </header>
-        <CalendarContainer />
         <MemoryRouter>
           <Switch location={{ pathname: this.props.route }}>
             <Route path="/calendar" component={CalendarContainer} />
@@ -51,6 +51,7 @@ let mapStateToProps = state => ({
 let mapDispatchToProps = dispatch => ({
   logout: () => dispatch(auth.logout()),
   signin: token => dispatch(auth.signin(token)),
+  goToCalendar: () => dispatch(route.switchRoute('/calendar')),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
