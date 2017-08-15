@@ -6,10 +6,10 @@ export const signin = (token) => ({
   payload: token,
 });
 
-// export const logout = () => {
-//   util.cookieDelete('X-Casehawk-Token');
-//   return { type: 'LOGOUT' };
-// };
+export const logout = () => {
+  util.cookieDelete('X-Casehawk-Token');
+  return { type: 'LOGOUT' };
+};
 
 export const signinRequest = (user) => (dispatch) => {
   return superagent.get(`${__API_URL__}/api/signin`)

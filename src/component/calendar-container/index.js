@@ -2,7 +2,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 import EventForm from '../event-form';
 import Calendar from '../calendar';
-import {eventCreateRequest} from '../../action/event.js';
+import {eventCreateRequest, eventReadRequest} from '../../action/event.js';
 
 class CalendarContainer extends React.Component {
   constructor(props){
@@ -44,6 +44,7 @@ let mapStateToProps = (state) => ({
 
 let mapDispatchToProps = (dispatch) => ({
   eventCreate: (event) => dispatch(eventCreateRequest(event)),
+  // eventRead: () => dispatch(eventReadRequest()),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(CalendarContainer);
