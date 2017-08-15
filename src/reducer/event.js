@@ -1,7 +1,6 @@
 let validateEventCreate = (event) => {
-  if(!event.name || !event.startDateTime || !event.endDateTime
-    || !event.owner || !event.username || !event.email){
-    throw  new Error('VALIDATION ERROR: event requires name, start and end time.');
+  if(!event.name || !event.startDateTime || !event.endDateTime || !event.eventType){
+    throw  new Error('VALIDATION ERROR: event requires name, start and end time and event type.');
   }
 };
 
