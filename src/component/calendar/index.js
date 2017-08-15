@@ -4,6 +4,7 @@ import events from './events/events.js';
 import moment from 'moment';
 
 let allViews = Object.keys(BigCalendar.views).map(k => BigCalendar.views[k]);
+console.log('views', BigCalendar.views);
 
 BigCalendar.setLocalizer(
   BigCalendar.momentLocalizer(moment)
@@ -16,7 +17,7 @@ let Basic = React.createClass({
         {...this.props}
         events={events}
         views={allViews}
-        defaultDate={new Date(2015, 3, 1)}
+        defaultDate={new Date()}
       />
     );
   },
