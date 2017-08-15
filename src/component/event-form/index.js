@@ -6,8 +6,14 @@ class EventForm extends React.Component {
     super(props);
 
     this.state = props.event                  // passed in only if updateing
-      ? {...props.event, alldayChecked: false}         // inital state on update
-      : {};  // inital state for createing a event
+      ? {...props.event}         // inital state on update
+      : {name: '',
+        alldayChecked: false,
+        startDateTime: '',
+        endDateTime: '',
+        eventType: null,
+        tag: '',
+        notifyChecked: false};  // inital state for createing a event
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -24,9 +30,37 @@ class EventForm extends React.Component {
 
   handleChange(e){
     let {type, name} = e.target;
+    console.log('value', e.target.value);
+
+    if(name === 'name'){
+      this.setState({name: e.target.value});
+      console.log('state', this.state);
+    }
 
     if(name === 'allday'){
-      this.setState({alldayChecked: e.target.value});
+      this.setState({alldayChecked: e.target.checked});
+    }
+
+    if(name === 'start-date-time'){
+      console.log('e', e);
+      this.setState({startDateTime: e.target.value});
+    }
+
+    if(name === 'end-date-time'){
+      this.setState({endDateTime: e.target.value});
+    }
+
+    if(name === 'event-type'){
+      this.setState({eventType: e.target.value});
+      console.log('this.state, yo', this.state);
+    }
+
+    if(name === 'tag'){
+      this.setState({tag: e.target.value});
+    }
+
+    if(name === 'notify'){
+      this.setState({notifyChecked: e.target.checked});
     }
   }
 
@@ -47,6 +81,7 @@ class EventForm extends React.Component {
           type='text'
           name='name'
           onChange={this.handleChange}
+          value={this.state.name}
         />
 
         <label htmlFor='allday'> All Day: </label>
@@ -64,7 +99,7 @@ class EventForm extends React.Component {
           type='datetime-local'
           id='start-date-time'
           name='start-date-time'
-          onChange={this.handleChange}
+          onInput={this.handleChange}
         />
 
         <label htmlFor='end-date-time'> End Date/Time: </label>
@@ -73,11 +108,17 @@ class EventForm extends React.Component {
           type='datetime-local'
           id='end-date-time'
           name='end-date-time'
-          onChange={this.handleChange}
+          onInput={this.handleChange}
         />
 
 
-        <select defaultValue="appointment">
+        <select
+          defaultValue="---"
+          id='event-type'
+          name='event-type'
+          onChange={this.handleChange}
+        >
+          <option value="---"> --- </option>
           <option value="appointment"> Appointment </option>
           <option value="court-date"> Court Date </option>
           <option value="deadline"> Deadline </option>
