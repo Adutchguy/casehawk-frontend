@@ -13,9 +13,11 @@ export const signin = (token) => ({
 
 export const signinRequest = (user) => (dispatch) => {
   return superagent.get(`${__API_URL__}/api/signin`)
+    .withCredentials()
     .auth(user.username, user.password)
     .then(res => {
       let token = util.cookieFetch('X-Casehawk-Token');
+      console.log('token', token);
       if(token)
         dispatch(signin(token));
       return res;
