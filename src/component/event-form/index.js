@@ -7,10 +7,10 @@ class EventForm extends React.Component {
 
     this.state = props.event                  // passed in only if updateing
       ? {...props.event}         // inital state on update
-      : {name: '',
-        alldayChecked: false,
-        startDateTime: '',
-        endDateTime: '',
+      : {title: '',
+        allDay: false,
+        start: '',
+        end: '',
         eventType: null,
         tag: '',
         notifyChecked: false};  // inital state for createing a event
@@ -32,27 +32,26 @@ class EventForm extends React.Component {
     let {type, name} = e.target;
     console.log('value', e.target.value);
 
-    if(name === 'name'){
-      this.setState({name: e.target.value});
+    if(name === 'title'){
+      this.setState({title: e.target.value});
       console.log('state', this.state);
     }
 
     if(name === 'allday'){
-      this.setState({alldayChecked: e.target.checked});
+      this.setState({allDay: e.target.checked});
     }
 
     if(name === 'start-date-time'){
       console.log('e', e);
-      this.setState({startDateTime: e.target.value});
+      this.setState({start: e.target.value});
     }
 
     if(name === 'end-date-time'){
-      this.setState({endDateTime: e.target.value});
+      this.setState({end: e.target.value});
     }
 
     if(name === 'event-type'){
       this.setState({eventType: e.target.value});
-      console.log('this.state, yo', this.state);
     }
 
     if(name === 'tag'){
@@ -79,7 +78,7 @@ class EventForm extends React.Component {
         <input
           placeholder='Title'
           type='text'
-          name='name'
+          name='title'
           onChange={this.handleChange}
           value={this.state.name}
         />

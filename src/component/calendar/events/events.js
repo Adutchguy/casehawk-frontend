@@ -66,5 +66,10 @@ export default [
     'title': 'Birthday Party',
     'start':new Date(2015, 3, 13, 7, 0, 0),
     'end': new Date(2015, 3, 13, 10, 30, 0)
-  }
-]
+  },
+  {
+    'title': 'Derek Test',
+    'start': '2017-08-17T10:24:00.000Z',
+    'end': '2017-08-17T12:24:00.000Z',
+  },
+];
