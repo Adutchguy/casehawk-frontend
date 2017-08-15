@@ -1,3 +1,5 @@
+import '../../style/calendar.scss';
+
 import React from 'react';
 import { connect } from 'react-redux';
 import { MemoryRouter, Switch, Route } from 'react-router-dom';

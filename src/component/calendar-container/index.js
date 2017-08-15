@@ -1,6 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import EventForm from '../event-form';
+import Calendar from '../calendar';
 import {eventCreateRequest} from '../../action/event.js';
 
 class CalendarContainer extends React.Component {
@@ -27,6 +28,7 @@ class CalendarContainer extends React.Component {
       <div className='calendar-container'>
         <h2> calendar </h2>
 
+        <Calendar />
         <EventForm
           buttonText='add event'
           onComplete={this.handleEventCreate}
