@@ -17,7 +17,7 @@ describe('testing util file', () => {
     expect(result).toBeTruthy();
   });
 
-  // test.only('cookieFetch should return a cookie', () => {
+  // test('cookieFetch should return a cookie', () => {
   //   const result = util.cookieFetch('YEA=SON');
   //   // expect(result).toBeDefined();
   //   // expect(result).toBeTruthy();
