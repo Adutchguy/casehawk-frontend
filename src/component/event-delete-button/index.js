@@ -5,11 +5,11 @@ class EventDeleteButton extends React.Component {
   constructor(props){
     super(props);
 
-    this.state = props.event                  // passed in only if updateing
-      ? {...props.event} : {};      // inital state on update
+    this.state = props.event
+      ? {...this.state, ...props.event}
+      : {};
 
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleClick = this.handleClick.bind(this);
   }
 
   componentDidUpdate(){
@@ -21,17 +21,18 @@ class EventDeleteButton extends React.Component {
       this.setState(props.event);
   }
 
-  handleChange(e){
-  }
-
-  handleSubmit(e){
+  handleClick(e){
     e.preventDefault();
     this.props.onComplete(this.state);
   }
 
   render(){
     return (
-      <button type='submit'> {this.props.buttonText} </button>
+      <button
+        onClick={this.handleClick}
+      >
+        {this.props.buttonText}
+      </button>
     );
   }
 }

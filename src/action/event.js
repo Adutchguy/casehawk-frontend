@@ -1,5 +1,14 @@
 import superagent from 'superagent';
 import * as util from '../lib/util.js';
+import moment from 'moment';
+
+const UTCOffsetHours = (new Date().getTimezoneOffset())/60;
+const UTCOffset = (UTCOffsetHours) => {
+  if(UTCOffsetHours < 10)
+    return `0${UTCOffsetHours}:00`;
+  if(UTCOffsetHours > 9)
+    return `${UTCOffsetHours}:00`;
+};
 
 export const eventCreate = (event) => ({
   type: 'EVENT_CREATE',

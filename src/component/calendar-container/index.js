@@ -77,6 +77,7 @@ class CalendarContainer extends React.Component {
             <EventDeleteButton
               buttonText='delete event'
               onComplete={this.handleEventDelete}
+              event={this.state.eventToUpdate}
             />
           </div>
         )}
