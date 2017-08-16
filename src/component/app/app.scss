@@ -1,0 +1,34 @@
+@import '../../style/_vars.scss';
+
+header {
+  background: $color-secondary;
+  height: 6.5em;
+}
+
+h1 {
+  font-family: "Helvetica Neue", Helvetica, "Bitstream Vera Sans", Arial, sans-serif;
+  color: #fff;
+  letter-spacing: 1px;
+  font-size: 1.6em;
+}
+
+button{
+  border-radius: none;
+}
+
+.logout {
+  width: 7em;
+  height: 2.5em;
+  position: absolute;
+  right: 2em;
+  top: 4.4em;
+  font-size: 1em;
+}
+.calendar-button {
+  width: 7em;
+  height: 2.5em;
+  position: absolute;
+  left: 2em;
+  top: 4.4em;
+  font-size: 1em;
+}

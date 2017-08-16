@@ -1,5 +1,6 @@
 import React from 'react';
 import * as util from '../../lib/util.js';
+import './event-form.scss';
 
 class EventForm extends React.Component {
   constructor(props){
@@ -51,40 +52,49 @@ class EventForm extends React.Component {
         onSubmit={this.handleSubmit}
       >
 
-        <input
-          placeholder='Title'
-          type='text'
-          name='title'
-          onChange={this.handleChange}
-          value={this.state.name}
-        />
+        <p>
+          <label htmlFor='start-date-time'> Start Date/Time: </label>
 
-        <label htmlFor='allday'> All Day: </label>
+          <input
+            type='datetime-local'
+            id='start-date-time'
+            name='start'
+            onInput={this.handleChange}
+          />
+        </p>
 
-        <input
-          type='checkbox'
-          id='allday'
-          name='allday'
-          onChange={this.handleChange}
-        />
+        <p>
+          <label htmlFor='end-date-time'> End Date/Time: </label>
 
-        <label htmlFor='start-date-time'> Start Date/Time: </label>
+          <input
+            type='datetime-local'
+            id='end-date-time'
+            name='end'
+            onInput={this.handleChange}
+          />
+        </p>
 
-        <input
-          type='datetime-local'
-          id='start-date-time'
-          name='start'
-          onInput={this.handleChange}
-        />
+        <p>
+          <input
+            placeholder='Title'
+            type='text'
+            name='title'
+            onChange={this.handleChange}
+            value={this.state.name}
+          />
+        </p>
 
-        <label htmlFor='end-date-time'> End Date/Time: </label>
 
-        <input
-          type='datetime-local'
-          id='end-date-time'
-          name='end'
-          onInput={this.handleChange}
-        />
+        <p>
+          <label htmlFor='allday'> All Day: </label>
+
+          <input
+            type='checkbox'
+            id='allday'
+            name='allday'
+            onChange={this.handleChange}
+          />
+        </p>
 
         <select
           defaultValue="---"
@@ -99,13 +109,15 @@ class EventForm extends React.Component {
           <option value="task"> Task </option>
         </select>
 
-        <label htmlFor='notify'> Notify: </label>
-        <input
-          type='checkbox'
-          id='notify'
-          name='notify'
-          onChange={this.handleChange}
-        />
+        <p>
+          <label htmlFor='notify'> Notify: </label>
+          <input
+            type='checkbox'
+            id='notify'
+            name='notify'
+            onChange={this.handleChange}
+          />
+        </p>
 
         <input
           placeholder='tags'
@@ -114,7 +126,9 @@ class EventForm extends React.Component {
           onChange={this.handleChange}
         />
 
-        <button type='submit'> {this.props.buttonText} </button>
+        <p>
+          <button type='submit'> {this.props.buttonText} </button>
+        </p>
       </form>
     );
   }
