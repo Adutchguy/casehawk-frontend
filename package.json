@@ -13,7 +13,7 @@
 		}
 	},
 	"scripts": {
-		"test": "jest",
+		"test": "jest --watch --coverage",
 		"lint": "eslint . --fix",
 		"build": "webpack",
 		"watch": "webpack-dev-server --inline --hot"
@@ -57,5 +57,12 @@
 		"validator": "^8.0.0",
 		"webpack": "^3.5.4",
 		"webpack-dev-server": "^2.7.1"
+	},
+	"devDependencies": {
+		"babel-jest": "^20.0.3",
+		"babel-preset-es2015": "^6.24.1",
+		"babel-preset-react": "^6.24.1",
+		"jest": "^20.0.4",
+		"react-test-renderer": "^15.6.1"
 	}
 }

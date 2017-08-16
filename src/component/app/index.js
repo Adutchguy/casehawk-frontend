@@ -6,6 +6,7 @@ import { MemoryRouter, Switch, Route } from 'react-router-dom';
 import * as util from '../../lib/util.js';
 import * as auth from '../../action/auth';
 import * as route from '../../action/route';
+import { Provider } from 'react-redux';
 
 import LandingContainer from '../landing-container';
 import CalendarContainer from '../calendar-container';
@@ -27,7 +28,9 @@ class App extends React.Component {
           {util.renderIf(
             this.props.token,
             <div className="menu">
-              <button className='logout' onClick={this.props.logout}> logout </button>
+              <button className="logout" onClick={this.props.logout}>
+                {' '}logout{' '}
+              </button>
             </div>
           )}
         </header>
