@@ -75,7 +75,7 @@ class EventForm extends React.Component {
         className='event-form'
         onSubmit={this.handleSubmit}
       >
-      
+
         <p>
           <label htmlFor='start-date-time'> Start Date/Time: </label>
           <input
@@ -147,7 +147,9 @@ class EventForm extends React.Component {
           onChange={this.handleChange}
         />
 
-        <button type='submit'> {this.props.buttonText} </button>
+        <p>
+          <button type='submit'> {this.props.buttonText} </button>
+        </p>
       </form>
     );
   }
