@@ -19,6 +19,8 @@ export const eventCreateRequest = (event) => (dispatch, getState) => {
     .set('Authorization', `Bearer ${token}`)
     .send(event)
     .then(res => {
+      res.body.start = new Date(res.body.start);
+      res.body.end = new Date(res.body.end);
       dispatch(eventCreate(res.body));
       return res;
     })
