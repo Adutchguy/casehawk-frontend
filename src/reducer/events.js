@@ -13,7 +13,11 @@ export default (state=[], action) => {
   case 'EVENT_READ':
     return payload;
   case 'EVENT_UPDATE':
-    return [...state, payload];
+    return state.map(item =>
+      item._id === payload._id
+        ? item = payload
+        : item
+    );
   case 'EVENT_DELETE':
     return state.filter(item =>
       item._id !== payload._id);

@@ -34,9 +34,16 @@ let Basic = React.createClass({
     return (
       <BigCalendar
         {...this.props}
+        selectable
         events={this.props.events}
         views={allViews}
+        defaultView='week'
         defaultDate={new Date()}
+        onSelectEvent={event => this.props.handleEventClick(event)}
+        onSelectSlot={(slotInfo) => alert(
+          `selected slot: \n\nstart ${slotInfo.start.toLocaleString()} ` +
+          `\nend: ${slotInfo.end.toLocaleString()}`
+        )}
       />
     );
   },
