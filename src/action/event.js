@@ -19,6 +19,8 @@ export const eventCreateRequest = (event) => (dispatch, getState) => {
     .set('Authorization', `Bearer ${token}`)
     .send(event)
     .then(res => {
+      res.body.start = new Date(res.body.start);
+      res.body.end = new Date(res.body.end);
       dispatch(eventCreate(res.body));
       return res;
     })
@@ -31,7 +33,10 @@ export const eventReadRequest = () => (dispatch, getState) => {
     .withCredentials()
     .set('Authorization', `Bearer ${token}`)
     .then(res => {
-      console.log('JSON.parse(res)', res.body);
+      for(let i=0; i<res.body.length; i++){
+        res.body[i].start = new Date(res.body[i].start);
+        res.body[i].end = new Date(res.body[i].end);
+      }
       dispatch(eventRead(res.body));
       return (res.body);
     })
