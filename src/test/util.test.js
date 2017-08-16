@@ -10,20 +10,23 @@ describe('testing util file', () => {
     expect(result).toBe(undefined);
   });
 
-  // need to find a better way to test if the date is correct, but it always changes
-  test('cookieTime should return a new Date()', () => {
-    const result = util.cookieTime(2);
-    expect(result).toBeDefined();
-    expect(result).toBeTruthy();
+  // const result = util.cookieFetch('beans=peaches');
+  // console.log('COOKIE ***************', cookieTest);
+  test('cookieCreate should create a cookie', () => {
+    util.cookieCreate('beans', 'peaches', 12345);
+    // expect(result).toBeDefined();
+    // expect(result).toBeTruthy();
+    console.log('document.cookie', document.cookie);
+    expect(document.cookie).toEqual('beans=peaches');
   });
-
-  // test('cookieFetch should return a cookie', () => {
-  //   const result = util.cookieFetch('YEA=SON');
-  //   // expect(result).toBeDefined();
-  //   // expect(result).toBeTruthy();
-  //   console.log('document.cookie', document.cookie);
-  //   expect(result).toEqual(document.cookie);
-  // });
+  test('cookieFetch should return a value of a cookies key', () => {
+    const result = util.cookieFetch('banana: hammocks');
+    console.log('RESULT', result);
+    // expect(result).toBeDefined();
+    // expect(result).toBeTruthy();
+    console.log('document.cookie', document.cookie);
+    expect(document.cookie).toEqual('beans=peaches');
+  });
 
   test('classToggler should only include classes that are on', () => {
     const testToggle = { cool: false, beans: true };
