@@ -9,7 +9,8 @@ export default (state=[], action) => {
   switch(type){
   case 'EVENT_CREATE':
     validateEventCreate(payload);
-    return [...state, ...payload];
+    console.log('eventCreate', [...state, payload]);
+    return [...state, payload];
   case 'EVENT_READ':
     return payload;
   case 'EVENT_UPDATE':

@@ -31,12 +31,10 @@ export const eventReadRequest = () => (dispatch, getState) => {
     .withCredentials()
     .set('Authorization', `Bearer ${token}`)
     .then(res => {
-      console.log('JSON.parse(res before)', res.body);
       for(let i=0; i<res.body.length; i++){
         res.body[i].start = new Date(res.body[i].start);
         res.body[i].end = new Date(res.body[i].end);
       }
-      console.log('JSON.parse(res after)', res.body);
       dispatch(eventRead(res.body));
       return (res.body);
     })
