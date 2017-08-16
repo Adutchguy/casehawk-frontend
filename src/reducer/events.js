@@ -13,9 +13,10 @@ export default (state=[], action) => {
   case 'EVENT_READ':
     return payload;
   case 'EVENT_UPDATE':
-    return {...state, ...payload};
+    return [...state, payload];
   case 'EVENT_DELETE':
-    return null;
+    return state.filter(item =>
+      item._id !== payload._id);
   default:
     return state;
   }

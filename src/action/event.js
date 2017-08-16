@@ -11,6 +11,16 @@ export const eventRead = (events) => ({
   payload: events,
 });
 
+export const eventUpdate = (event) => ({
+  type: 'EVENT_UPDATE',
+  payload: event,
+});
+
+export const eventDelete = (event) => ({
+  type: 'EVENT_DELETE',
+  payload: event,
+});
+
 export const eventCreateRequest = (event) => (dispatch, getState) => {
   console.log('event', event);
   let token = util.cookieFetch('X-Casehawk-Token');
@@ -39,6 +49,35 @@ export const eventReadRequest = () => (dispatch, getState) => {
       }
       dispatch(eventRead(res.body));
       return (res.body);
+    })
+    .catch(util.logError);
+};
+
+export const eventUpdateRequest = (event) => (dispatch, getState) => {
+  console.log('event', event);
+  let token = util.cookieFetch('X-Casehawk-Token');
+  return superagent.put(`${__API_URL__}/api/events/:id`)
+    .withCredentials()
+    .set('Authorization', `Bearer ${token}`)
+    .send(event)
+    .then(res => {
+      res.body.start = new Date(res.body.start);
+      res.body.end = new Date(res.body.end);
+      dispatch(eventUpdate(res.body));
+      return res;
+    })
+    .catch(util.logError);
+};
+
+export const eventDeleteRequest = (event) => (dispatch, getState) => {
+  console.log('event', event);
+  let token = util.cookieFetch('X-Casehawk-Token');
+  return superagent.delete(`${__API_URL__}/api/events/:id`)
+    .withCredentials()
+    .set('Authorization', `Bearer ${token}`)
+    .then(res => {
+      dispatch(eventDelete(event));
+      return res;
     })
     .catch(util.logError);
 };
