@@ -9,9 +9,35 @@ describe('testing util file', () => {
     const result = util.renderIf(false, 'x', 'y');
     expect(result).toBe(undefined);
   });
-  test.only('cookieTime should return a new Date()', () => {
+
+  // need to find a better way to test if the date is correct, but it always changes
+  test('cookieTime should return a new Date()', () => {
     const result = util.cookieTime(2);
     expect(result).toBeDefined();
     expect(result).toBeTruthy();
+  });
+
+  // test.only('cookieFetch should return a cookie', () => {
+  //   const result = util.cookieFetch('YEA=SON');
+  //   // expect(result).toBeDefined();
+  //   // expect(result).toBeTruthy();
+  //   console.log('document.cookie', document.cookie);
+  //   expect(result).toEqual(document.cookie);
+  // });
+
+  test('classToggler should only include classes that are on', () => {
+    const testToggle = { cool: false, beans: true };
+    const result = util.classToggler(testToggle);
+    expect(result).toEqual('beans');
+  });
+  test('classToggler should only include classes that are on', () => {
+    const testToggle = { cool: false, beans: true };
+    const result = util.classToggler(testToggle);
+    expect(result).toEqual('beans');
+  });
+  test('classToggler should return an empty string for no on classes', () => {
+    const testToggle = { cool: false, beans: false, cheese: false };
+    const result = util.classToggler(testToggle);
+    expect(result).toEqual('');
   });
 });
