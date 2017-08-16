@@ -35,7 +35,6 @@ class CalendarContainer extends React.Component {
 
     return (
       <div className='calendar-container'>
-        <h2> calendar </h2>
 
         <Calendar />
         <EventForm
