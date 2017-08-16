@@ -19,6 +19,16 @@ let Basic = React.createClass({
     this.props.eventRead();
   },
 
+  // componentWillReceiveProps(props){
+  //   if(props.event){
+  //     this.setState({...state, ...props.event})
+  //   }
+  // },
+  //
+  // shouldComponentUpdate(nextProps, nextState){
+  //
+  // },
+
   render(){
     console.log('props', this.props);
     return (
