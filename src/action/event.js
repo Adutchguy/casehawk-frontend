@@ -56,7 +56,7 @@ export const eventReadRequest = () => (dispatch, getState) => {
 export const eventUpdateRequest = (event) => (dispatch, getState) => {
   console.log('event', event);
   let token = util.cookieFetch('X-Casehawk-Token');
-  return superagent.put(`${__API_URL__}/api/events/:id`)
+  return superagent.put(`${__API_URL__}/api/events/${event._id}`)
     .withCredentials()
     .set('Authorization', `Bearer ${token}`)
     .send(event)
@@ -72,7 +72,7 @@ export const eventUpdateRequest = (event) => (dispatch, getState) => {
 export const eventDeleteRequest = (event) => (dispatch, getState) => {
   console.log('event', event);
   let token = util.cookieFetch('X-Casehawk-Token');
-  return superagent.delete(`${__API_URL__}/api/events/:id`)
+  return superagent.delete(`${__API_URL__}/api/events/${event._id}`)
     .withCredentials()
     .set('Authorization', `Bearer ${token}`)
     .then(res => {

@@ -13,12 +13,17 @@ class CalendarContainer extends React.Component {
 
     this.state = {
       updateMode: false,
+      eventToUpdate: {},
     };
+    console.log('STATE', this.state);
 
     this.handleEventCreate = this.handleEventCreate.bind(this);
     this.handleEventUpdate = this.handleEventUpdate.bind(this);
     this.handleEventDelete = this.handleEventDelete.bind(this);
     this.handleEventClick = this.handleEventClick.bind(this);
+  }
+  componentDidUpdate(){
+    console.log('EVENT UPDATE CALENDAR CONTAINER STATE', this.state);
   }
 
   handleEventCreate(event){
@@ -32,11 +37,14 @@ class CalendarContainer extends React.Component {
   }
 
   handleEventDelete(event){
-    return this.props.eventDelete(event);
+    return this.props.eventDelete(event)
+      .catch(console.error);
   }
 
   handleEventClick(event){
+    console.log('EVENT CLICK', event);
     this.setState({updateMode: !this.state.updateMode});
+    this.setState({eventToUpdate: event});
   }
 
   render(){
@@ -63,6 +71,7 @@ class CalendarContainer extends React.Component {
             <EventUpdateForm
               buttonText='update event'
               onComplete={this.handleEventUpdate}
+              event={this.state.eventToUpdate}
             />
 
             <EventDeleteButton
