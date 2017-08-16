@@ -24,12 +24,14 @@ class EventUpdateForm extends React.Component {
   }
 
   handleChange(e){
-    let {type, name} = e.target;
-    type == 'checkbox'
+    let {type, name, value} = e.target;
+    type === 'checkbox'
       ? e.target.checked === false
         ? this.setState({[name]: false})
         : this.setState({[name]: true})
-      : this.setState({[name]: e.target.value});
+      : type === 'datetime-local'
+        ? this.setState({[name]: new Date(value)})
+        : this.setState({[name]: value});
   }
 
   handleSubmit(e){
@@ -69,7 +71,6 @@ class EventUpdateForm extends React.Component {
           id='start-date-time'
           name='start'
           onInput={this.handleChange}
-          value={this.state.start}
         />
 
         <label htmlFor='end-date-time'> End Date/Time: </label>
@@ -79,7 +80,6 @@ class EventUpdateForm extends React.Component {
           id='end-date-time'
           name='end'
           onInput={this.handleChange}
-          value={this.state.end}
         />
 
 
