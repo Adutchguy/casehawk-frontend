@@ -63,15 +63,17 @@ export const eventReadRequest = () => (dispatch, getState) => {
 };
 
 export const eventUpdateRequest = (event) => (dispatch, getState) => {
-  console.log('event', event);
   let token = util.cookieFetch('X-Casehawk-Token');
   return superagent.put(`${__API_URL__}/api/events/${event._id}`)
     .withCredentials()
     .set('Authorization', `Bearer ${token}`)
     .send(event)
     .then(res => {
+      console.log('PUT event', event);
+      console.log('PUT res', res.body);
       res.body.start = new Date(res.body.start);
       res.body.end = new Date(res.body.end);
+      console.log('PUT res after', res.body);
       dispatch(eventUpdate(res.body));
       return res;
     })

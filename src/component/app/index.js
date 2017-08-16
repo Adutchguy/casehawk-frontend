@@ -1,4 +1,4 @@
-// import '../../style/calendar.scss';
+import './app.scss';
 
 import React from 'react';
 import { connect } from 'react-redux';
@@ -23,11 +23,14 @@ class App extends React.Component {
     return (
       <div className="app">
         <header>
+          <img src="../asset/harvey_birdman_wii.jpg" />
+          <h1> CASEHAWK </h1>
           {util.renderIf(
             this.props.token,
             <div className="menu">
-              <button onClick={this.props.logout}> logout </button>
-              <button onClick={this.props.goToCalendar}> calendar </button>
+              <button className="logout" onClick={this.props.logout}>
+                {' '}logout{' '}
+              </button>
             </div>
           )}
         </header>
