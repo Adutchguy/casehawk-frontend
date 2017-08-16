@@ -4,9 +4,11 @@ import * as util from '../../lib/util.js';
 class EventUpdateForm extends React.Component {
   constructor(props){
     super(props);
-
-    this.state = props.event                  // passed in only if updateing
-      ? {...props.event} : {};      // inital state on update
+    console.log('PROPS', props);
+    this.state = props.event
+      ? {...this.state, ...props.event}
+      : {};
+    console.log('LOCAL STATE', this.state);
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -18,7 +20,7 @@ class EventUpdateForm extends React.Component {
 
   componentWillReceiveProps(props){
     if(props.event)
-      this.setState(props.event);
+      this.setState({event: props.event});
   }
 
   handleChange(e){
@@ -82,13 +84,11 @@ class EventUpdateForm extends React.Component {
 
 
         <select
-          defaultValue="---"
           id='event-type'
-          name='desc'
+          name='eventType'
           onChange={this.handleChange}
-          value={this.state.desc}
+          value={this.state.eventType}
         >
-          <option value="---"> --- </option>
           <option value="appointment"> Appointment </option>
           <option value="court-date"> Court Date </option>
           <option value="deadline"> Deadline </option>

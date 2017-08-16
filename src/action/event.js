@@ -1,5 +1,14 @@
 import superagent from 'superagent';
 import * as util from '../lib/util.js';
+import moment from 'moment';
+
+const UTCOffsetHours = (new Date().getTimezoneOffset())/60;
+const UTCOffset = (UTCOffsetHours) => {
+  if(UTCOffsetHours < 10)
+    return `0${UTCOffsetHours}:00`;
+  if(UTCOffsetHours > 9)
+    return `${UTCOffsetHours}:00`;
+};
 
 export const eventCreate = (event) => ({
   type: 'EVENT_CREATE',
@@ -56,7 +65,7 @@ export const eventReadRequest = () => (dispatch, getState) => {
 export const eventUpdateRequest = (event) => (dispatch, getState) => {
   console.log('event', event);
   let token = util.cookieFetch('X-Casehawk-Token');
-  return superagent.put(`${__API_URL__}/api/events/:id`)
+  return superagent.put(`${__API_URL__}/api/events/${event._id}`)
     .withCredentials()
     .set('Authorization', `Bearer ${token}`)
     .send(event)
@@ -72,7 +81,7 @@ export const eventUpdateRequest = (event) => (dispatch, getState) => {
 export const eventDeleteRequest = (event) => (dispatch, getState) => {
   console.log('event', event);
   let token = util.cookieFetch('X-Casehawk-Token');
-  return superagent.delete(`${__API_URL__}/api/events/:id`)
+  return superagent.delete(`${__API_URL__}/api/events/${event._id}`)
     .withCredentials()
     .set('Authorization', `Bearer ${token}`)
     .then(res => {
