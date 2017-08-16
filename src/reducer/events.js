@@ -9,13 +9,18 @@ export default (state=[], action) => {
   switch(type){
   case 'EVENT_CREATE':
     validateEventCreate(payload);
-    return payload;
+    return [...state, payload];
   case 'EVENT_READ':
     return payload;
   case 'EVENT_UPDATE':
-    return {...state, ...payload};
+    return state.map(item =>
+      item._id === payload._id
+        ? item = payload
+        : item
+    );
   case 'EVENT_DELETE':
-    return null;
+    return state.filter(item =>
+      item._id !== payload._id);
   default:
     return state;
   }

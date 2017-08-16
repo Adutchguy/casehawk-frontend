@@ -19,14 +19,31 @@ let Basic = React.createClass({
     this.props.eventRead();
   },
 
+  // componentWillReceiveProps(props){
+  //   if(props.event){
+  //     this.setState({...state, ...props.event})
+  //   }
+  // },
+  //
+  // shouldComponentUpdate(nextProps, nextState){
+  //
+  // },
+
   render(){
     console.log('props', this.props);
     return (
       <BigCalendar
         {...this.props}
+        selectable
         events={this.props.events}
         views={allViews}
+        defaultView='week'
         defaultDate={new Date()}
+        onSelectEvent={event => this.props.handleEventClick(event)}
+        onSelectSlot={(slotInfo) => alert(
+          `selected slot: \n\nstart ${slotInfo.start.toLocaleString()} ` +
+          `\nend: ${slotInfo.end.toLocaleString()}`
+        )}
       />
     );
   },

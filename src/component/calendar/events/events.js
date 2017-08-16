@@ -69,7 +69,7 @@ export default [
   },
   {
     title: 'Derek Test',
-    start: '2017-08-17T10:24:00.000Z',
-    end: '2017-08-17T12:24:00.000Z',
+    start: 'Mon Aug 18 2017 07:00:00 GMT-0700 (PDT)',
+    end: 'Mon Aug 18 2017 09:00:00 GMT-0700 (PDT)',
   },
 ];
