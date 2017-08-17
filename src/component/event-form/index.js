@@ -6,15 +6,15 @@ class EventForm extends React.Component {
   constructor(props){
     super(props);
 
-    this.state = props.event                  // passed in only if updateing
-      ? {...props.event}         // inital state on update
+    this.state = props.event
+      ? {...props.event}
       : {title: '',
         allDay: false,
         start: '',
         end: '',
         eventType: null,
         tag: '',
-        notifyChecked: false};  // inital state for createing a event
+        notify: false};
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -91,7 +91,7 @@ class EventForm extends React.Component {
           <input
             type='checkbox'
             id='allday'
-            name='allday'
+            name='allDay'
             onChange={this.handleChange}
           />
         </p>
