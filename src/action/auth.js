@@ -16,10 +16,9 @@ export const signinRequest = (user) => (dispatch) => {
     .withCredentials()
     .auth(user.username, user.password)
     .then(res => {
-      let token = util.cookieCreate('X-Casehawk-Token', res.text, 7);
-      console.log('token', token);
-      if(token)
-        dispatch(signin(token));
+      util.cookieCreate('X-Casehawk-Token', res.text, 7);
+      if(res.text)
+        dispatch(signin(res.text));
       return res;
     })
     .catch(util.logError);
@@ -30,9 +29,9 @@ export const signupRequest = (user) => (dispatch) => {
     .withCredentials()
     .send(user)
     .then(res => {
-      let token = util.cookieCreate('X-Casehawk-Token', res.text, 7);
-      if(token)
-        dispatch(signin(token));
+      util.cookieCreate('X-Casehawk-Token', res.text, 7);
+      if(res.text)
+        dispatch(signin(res.text));
       return res;
     })
     .catch(util.logError);
