@@ -1,5 +1,6 @@
 import React from 'react';
 import * as util from '../../lib/util.js';
+import './event-delete.scss';
 
 class EventDeleteButton extends React.Component {
   constructor(props){
@@ -29,6 +30,7 @@ class EventDeleteButton extends React.Component {
   render(){
     return (
       <button
+        className='delete'
         onClick={this.handleClick}
       >
         {this.props.buttonText}

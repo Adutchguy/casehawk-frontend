@@ -1,3 +1,4 @@
+import './calendar-container.scss';
 import React from 'react';
 import {connect} from 'react-redux';
 import EventForm from '../event-form';
