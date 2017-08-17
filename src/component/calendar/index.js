@@ -13,11 +13,23 @@ BigCalendar.setLocalizer(
 );
 
 
+
+let formats = {
+  dayFormat: 'ddd' + ' ' + 'MM' + '/' + 'DD',
+
+  // dayRangeHeaderFormat: ({ start, end },  local) =>
+  //   local.format(start, { date: 'short' })  + ' — ' +
+  //   local.format(end, { date: 'short' }),
+};
+
+
 let Basic = React.createClass({
 
   componentWillMount(){
     this.props.eventRead();
   },
+
+
 
   // componentWillReceiveProps(props){
   //   if(props.event){
@@ -37,6 +49,7 @@ let Basic = React.createClass({
         selectable
         events={this.props.events}
         views={allViews}
+        formats={formats}
         defaultView='week'
         defaultDate={new Date()}
         onSelectEvent={event => this.props.handleEventClick(event)}
