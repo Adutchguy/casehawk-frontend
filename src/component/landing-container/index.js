@@ -8,8 +8,8 @@ export class LandingContainer extends React.Component {
   render() {
     return (
       <div className="landing-container">
-        <button className='signin-button' onClick={this.props.goToSignin}> signin </button>
-        <button className='signup-button' onClick={this.props.goToSignup}> signup </button>
+        <button className='signin-button' onClick={this.props.goToSignin}> sign-in </button>
+        <button className='signup-button' onClick={this.props.goToSignup}> sign-up </button>
       </div>
     );
   }

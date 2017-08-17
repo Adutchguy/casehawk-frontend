@@ -114,7 +114,7 @@ export class SignupContainer extends React.Component {
             onChange={this.handleChange}
           />
 
-          <button className='signup-cont-button' type="submit"> signup </button>
+          <button className='signup-cont-button' type="submit"> sign-up </button>
         </form>
       </div>
     );

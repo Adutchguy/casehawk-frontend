@@ -51,7 +51,7 @@ class SigninContainer extends React.Component {
             onChange={this.handleChange}
           />
 
-          <button className='signin-cont-button' type='submit'> signin </button>
+          <button className='signin-cont-button' type='submit'> sign-in </button>
         </form>
       </div>
     );

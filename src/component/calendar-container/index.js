@@ -39,7 +39,7 @@ class CalendarContainer extends React.Component {
   }
 
   handleEventDelete(event){
-    this.setState({updateMode: false})
+    this.setState({updateMode: false});
     return this.props.eventDelete(event)
       .catch(console.error);
   }
