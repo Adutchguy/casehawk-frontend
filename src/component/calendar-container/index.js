@@ -33,6 +33,7 @@ class CalendarContainer extends React.Component {
   }
 
   handleEventUpdate(event){
+    this.setState({updateMode: false});
     return this.props.eventUpdate(event)
       .catch(console.error);
   }

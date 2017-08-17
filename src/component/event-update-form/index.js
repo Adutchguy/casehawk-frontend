@@ -86,7 +86,6 @@ class EventUpdateForm extends React.Component {
             id='allday'
             name='allDay'
             onChange={this.handleChange}
-            checked={this.state.checked}
           />
         </p>
 
@@ -112,7 +111,6 @@ class EventUpdateForm extends React.Component {
             id='notify'
             name='notify'
             onChange={this.handleChange}
-            checked={this.state.notify}
           />
         </p>
 
@@ -127,7 +125,7 @@ class EventUpdateForm extends React.Component {
         </p>
 
         <button type='submit'> {this.props.buttonText} </button>
-        
+
       </form>
     );
   }
