@@ -4,6 +4,7 @@ import {connect} from 'react-redux';
 import superagent from 'superagent';
 import * as util from '../../lib/util.js';
 import * as auth from '../../action/auth.js';
+import './signin-container.scss';
 
 class SigninContainer extends React.Component {
   constructor(props){
@@ -50,7 +51,7 @@ class SigninContainer extends React.Component {
             onChange={this.handleChange}
           />
 
-          <button type='submit'> signin </button>
+          <button className='signin-cont-button' type='submit'> signin </button>
         </form>
       </div>
     );

@@ -1,11 +1,12 @@
 import React from 'react';
 import * as _ from 'lodash';
-import { connect } from 'react-redux';
+import validator from 'validator';
 import superagent from 'superagent';
+import EventForm from '../event-form';
+import { connect } from 'react-redux';
 import * as util from '../../lib/util.js';
 import * as auth from '../../action/auth.js';
-import validator from 'validator';
-import EventForm from '../event-form';
+import './signup-container.scss';
 
 const Tooltip = props => {
   return (
@@ -31,18 +32,7 @@ export class SignupContainer extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.validateChange = this.validateChange.bind(this);
-    // this.usernameCheckAvailable = _.debounce(
-    //   this.usernameCheckAvailable.bind(this),
-    //   250
-    // );
   }
-
-  // usernameCheckAvailable() {
-  //   return superagent
-  //     .get(`${__API_URL__}/usernames/${this.state.username}`)
-  //     .then(() => this.setState({ usernameAvailable: true }))
-  //     .catch(() => this.setState({ usernameAvailable: false }));
-  // }
 
   handleSubmit(e) {
     e.preventDefault();
@@ -92,7 +82,6 @@ export class SignupContainer extends React.Component {
     this.validateChange({ ...e });
     let { name, value } = e.target;
     this.setState({ [name]: value });
-    // if (name === 'username') this.usernameCheckAvailable();
   }
 
   render() {
@@ -125,7 +114,7 @@ export class SignupContainer extends React.Component {
             onChange={this.handleChange}
           />
 
-          <button type="submit"> signup </button>
+          <button className='signup-cont-button' type="submit"> signup </button>
         </form>
       </div>
     );
