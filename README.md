@@ -9,7 +9,7 @@
 
 ### Technologies
 
-This project is deployed on Heroku using staging and production environments.
+This project is deployed on Heroku.
 
 Dependencies:
 
@@ -69,7 +69,10 @@ Dev Dependencies:
   *  Deadline
   *  Task
 
-* Users to view, edit, and/or delete their existing events.
+
+* Users can view, edit, and/or delete their existing events by clicking on the event and using the update form.
+
+
 * Users can manage their calendar through the following views:
   *  Month
   *  Week
@@ -94,8 +97,13 @@ Deployed endpoint: `https://casehawk-frontend.herokuapp.com`
 
 ### Create Account/Sign-in
 
+Users will have the option to create a new account or sign-in on the initial page. Account creations requires a valid e-mail, a username, and a password. Sign-in requires username and password.
+
 ###  Create Event
+To create an event, the user enters a start and end date and time. There is also an option to mark the event as "all day" The name of the event is entered into the tex box, and the event type is selected from the dropdown menu (options are Appointment, Court Date, Deadline, Task). When the add event button is clicked, the event will populate to the calendar view.
 
 ### Update Event
+To update an event, the user clicks on the event in the calendar view and makes the necessary changes in the available fields. The event is updated when the update event button is clicked.
 
 ### Delete Event
+To delete an event, the user clicks on the event in the calendar view and then clicks on the delete event button.
