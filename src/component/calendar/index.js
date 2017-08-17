@@ -32,10 +32,6 @@ let Basic = React.createClass({
         defaultView='week'
         defaultDate={new Date()}
         onSelectEvent={event => this.props.handleEventClick(event)}
-        onSelectSlot={(slotInfo) => alert(
-          `selected slot: \n\nstart ${slotInfo.start.toLocaleString()} ` +
-          `\nend: ${slotInfo.end.toLocaleString()}`
-        )}
       />
     );
   },
