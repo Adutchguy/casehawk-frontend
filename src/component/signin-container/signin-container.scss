@@ -1,17 +1,50 @@
 .signin-container{
-  text-align: center;
-  margin-top: 2em;
+  margin-top: 2vw;
+  position:relative;
+  width: 100vw;
 
-    input {
-    height: 2.1em;
-    font-size: 1em;
-    margin-left: .2em;
+    .signin-username {
+    height: 2.1vw;
+    font-size: 1vw;
+    margin-left: .2vw;
+    display: inline-block;
+    position: absolute;
+    left: 0%;
+  }
+    .signin-password {
+    height: 2.1vw;
+    font-size: 1vw;
+    margin-left: .2vw;
+    display: inline-block;
+    position: absolute;
+    left: 13%;
   }
 
   .signin-cont-button {
-    width: 7em;
-    height: 2.5em;
-    font-size: 1em;
-    margin-left: .2em;
+    width: 7vw;
+    height: 2.5vw;
+    font-size: 1vw;
+    margin-left: .2vw;
+    display: inline-block;
+    position: absolute;
+    left: 26%;
+  }
+
+  .signin-cancel-x{
+    text-align: center;
+    width: 1vw;
+    height: 1vw;
+    font-size: 1vw;
+    display: inline-block;
+    position: absolute;
+    left: 34%;
+    top: 0%;
+    color: rgba(#000000, 0.5);
+    border: .5px solid black;
+    &:hover{
+      color: #000000;
+      border: none;
+      cursor: pointer;
+    }
   }
 }

@@ -7,6 +7,7 @@ import { connect } from 'react-redux';
 import * as util from '../../lib/util.js';
 import * as auth from '../../action/auth.js';
 import './signup-container.scss';
+import * as route from '../../action/route';
 
 const Tooltip = props => {
   return (
@@ -74,7 +75,6 @@ export class SignupContainer extends React.Component {
         error = 'password can only contain letters and numbers';
       }
     }
-    console.log('error', error);
     this.setState({ [`${name}Error`]: error });
   }
 
@@ -86,10 +86,11 @@ export class SignupContainer extends React.Component {
 
   render() {
     return (
-      <div className="signup-container">
-        <form onSubmit={this.handleSubmit}>
+      <div>
+        <form className="signup-container" onSubmit={this.handleSubmit}>
           <Tooltip message={this.state.emailError} />
           <input
+            className='signup-email'
             name="email"
             type="email"
             placeholder="email"
@@ -98,6 +99,7 @@ export class SignupContainer extends React.Component {
           />
           <Tooltip message={this.state.usernameError} />
           <input
+            className='signup-username'
             name="username"
             type="text"
             placeholder="username"
@@ -107,6 +109,7 @@ export class SignupContainer extends React.Component {
 
           <Tooltip message={this.state.passwordError} />
           <input
+            className='signup-password'
             name="password"
             type="password"
             placeholder="password"
@@ -115,6 +118,12 @@ export class SignupContainer extends React.Component {
           />
 
           <button className='signup-cont-button' type="submit"> sign-up </button>
+
+          <div
+            className="signup-cancel-x"
+            onClick={this.props.goToLanding}
+          >X</div>
+
         </form>
       </div>
     );
@@ -125,6 +134,7 @@ export const mapStateToProps = state => ({});
 
 export const mapDispatchToProps = dispatch => ({
   signup: user => dispatch(auth.signupRequest(user)),
+  goToLanding: () => dispatch(route.switchRoute('/landing')),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(SignupContainer);

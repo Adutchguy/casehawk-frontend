@@ -5,18 +5,12 @@ import * as util from '../../lib/util.js';
 class EventUpdateForm extends React.Component {
   constructor(props){
     super(props);
-    console.log('PROPS', props);
     this.state = props.event
       ? {...this.state, ...props.event}
       : {};
-    console.log('LOCAL STATE', this.state);
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-  }
-
-  componentDidUpdate(){
-    console.log('EVENT UPDATE FORM STATE', this.state);
   }
 
   componentWillReceiveProps(props){

@@ -20,10 +20,6 @@ class EventForm extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  componentDidUpdate(){
-    console.log('EVENT FORM STATE', this.state);
-  }
-
   componentWillReceiveProps(props){
     if(props.event)
       this.setState(props.event);
