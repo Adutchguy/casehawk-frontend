@@ -5,23 +5,13 @@ import { shallow, mount } from 'enzyme';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 
-describe('testing <EventForm />', () => {
+describe.only('testing <EventForm />', () => {
   test('renders 1 <EventForm /> component,', () => {
     const store = createStore(console.log, {});
-    const component = shallow(
-      <Provider store={store}>
-        <Eventform />
-      </Provider>
-    );
+    const component = mount(<Eventform />);
+    let button = component.find('button');
+    button.simulate('click');
+    console.log('***********', button);
     expect(component).toHaveLength(1);
   });
 });
-//
-//
-//
-// describe('testing event-form', () => {
-//   test('signup button should be active', () => {
-//     const submitButton = shallow(<LandingContainer />);
-//     // expect(submitButton.text()).toEqual('submit');
-//   });
-// });

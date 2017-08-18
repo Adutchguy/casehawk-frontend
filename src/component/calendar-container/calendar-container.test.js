@@ -22,19 +22,4 @@ describe('testing <CalendarContainer />', () => {
     );
     expect(component).toHaveLength(1);
   });
-
-  test('handleEventCreate', () => {
-    const store = createStore(console.log, {});
-    const wrapper = shallow(
-      // <Provider store={store}>
-      <CalendarContainer store={store} />
-      // </Provider>
-    );
-    // let eventCreated = wrapper.instance().handleEventCreate();
-    console.log('WRAPPER', wrapper);
-
-    // console.log('eventCreated', eventCreated);
-    // expect(eventCreated).toExist();
-    expect(wrapper).toHaveLength(1);
-  });
 });

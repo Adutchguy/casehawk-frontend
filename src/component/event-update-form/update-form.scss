@@ -1,0 +1,33 @@
+@import '../../style/_vars.scss';
+
+.event-update {
+  padding: $pad;
+  float: right;
+  width: 28%;
+  background: $color-primary;
+  border-radius: $pad;
+  box-shadow: 0 0 0.3em $color-lightgrey;
+  margin: $pad;
+  height: 23em;
+
+  input{
+    height: 1.5em;
+    font-size: 0.8em;
+  }
+
+  #allday{
+    display: none;
+  }
+
+  #notify{
+    display: none;
+  }
+
+  button {
+    width: 100%;
+    height: 2em;
+    margin-bottom: -0.8em;
+    border-radius: 0.6em;
+    font-size: 1em;
+  }
+}

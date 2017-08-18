@@ -1,3 +1,4 @@
+import './update-form.scss';
 import React from 'react';
 import * as util from '../../lib/util.js';
 
@@ -42,77 +43,89 @@ class EventUpdateForm extends React.Component {
   render(){
     return (
       <form
-        className='event-update-form'
+        className='event-update'
         onSubmit={this.handleSubmit}
       >
+        <p>
+          <label htmlFor='start-date-time'> Start Date/Time: </label>
 
-        <input
-          placeholder='Title'
-          type='text'
-          name='title'
-          onChange={this.handleChange}
-          value={this.state.title}
-        />
+          <input
+            type='datetime-local'
+            id='start-date-time'
+            name='start'
+            onInput={this.handleChange}
+          />
+        </p>
 
-        <label htmlFor='allday'> All Day: </label>
+        <p>
+          <label htmlFor='end-date-time'> End Date/Time: </label>
 
-        <input
-          type='checkbox'
-          id='allday'
-          name='allDay'
-          onChange={this.handleChange}
-          checked={this.state.checked}
-        />
+          <input
+            type='datetime-local'
+            id='end-date-time'
+            name='end'
+            onInput={this.handleChange}
+          />
+        </p>
 
-        <label htmlFor='start-date-time'> Start Date/Time: </label>
+        <p>
+          <input
+            placeholder='Title'
+            type='text'
+            name='title'
+            onChange={this.handleChange}
+            value={this.state.title}
+          />
+        </p>
 
-        <input
-          type='datetime-local'
-          id='start-date-time'
-          name='start'
-          onInput={this.handleChange}
-        />
+        <p>
+          <label htmlFor='allday'> All Day: </label>
 
-        <label htmlFor='end-date-time'> End Date/Time: </label>
-
-        <input
-          type='datetime-local'
-          id='end-date-time'
-          name='end'
-          onInput={this.handleChange}
-        />
+          <input
+            type='checkbox'
+            id='allday'
+            name='allDay'
+            onChange={this.handleChange}
+          />
+        </p>
 
 
-        <select
-          id='event-type'
-          name='eventType'
-          onChange={this.handleChange}
-          value={this.state.eventType}
-        >
-          <option value="appointment"> Appointment </option>
-          <option value="court-date"> Court Date </option>
-          <option value="deadline"> Deadline </option>
-          <option value="task"> Task </option>
-        </select>
+        <p>
+          <select
+            id='event-type'
+            name='eventType'
+            onChange={this.handleChange}
+            value={this.state.eventType}
+          >
+            <option value="appointment"> Appointment </option>
+            <option value="court-date"> Court Date </option>
+            <option value="deadline"> Deadline </option>
+            <option value="task"> Task </option>
+          </select>
+        </p>
 
-        <label htmlFor='notify'> Notify: </label>
-        <input
-          type='checkbox'
-          id='notify'
-          name='notify'
-          onChange={this.handleChange}
-          checked={this.state.notify}
-        />
+        <p>
+          <label htmlFor='notify'> Notify: </label>
+          <input
+            type='checkbox'
+            id='notify'
+            name='notify'
+            onChange={this.handleChange}
+          />
+        </p>
 
-        <input
-          placeholder='tags'
-          type='text'
-          name='tag'
-          onChange={this.handleChange}
-          value={this.state.tag}
-        />
+        <p>
+          <input
+            placeholder='tags'
+            type='text'
+            name='tag'
+            onChange={this.handleChange}
+            value={this.state.tag}
+          />
+        </p>
 
         <button type='submit'> {this.props.buttonText} </button>
+
       </form>
     );
   }

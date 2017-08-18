@@ -1,4 +1,4 @@
-// @import '../../style/_vars.scss';
+@import '../../style/_vars.scss';
 
 header {
 	background: $color-secondary;
@@ -11,6 +11,9 @@ h1 {
 	color: #fff;
 	letter-spacing: 1px;
 	font-size: 1.6em;
+	position: absolute;
+	top: 1em;
+	right: 5em;
 }
 
 button {
@@ -21,9 +24,9 @@ button {
 	width: 7em;
 	height: 2.5em;
 	position: absolute;
-	right: 2em;
 	top: 4.4em;
 	font-size: 1em;
+	left: 1em;
 }
 .calendar-button {
 	width: 7em;
@@ -32,4 +35,9 @@ button {
 	left: 2em;
 	top: 4.4em;
 	font-size: 1em;
+}
+
+img {
+	height: 6.5em;
+	float: right;
 }

@@ -7,6 +7,7 @@ import * as util from '../../lib/util.js';
 import * as auth from '../../action/auth';
 import * as route from '../../action/route';
 import { Provider } from 'react-redux';
+import harvey from '../asset/harvey_birdman_wii.jpg';
 
 import LandingContainer from '../landing-container';
 import CalendarContainer from '../calendar-container';
@@ -23,7 +24,7 @@ class App extends React.Component {
     return (
       <div className="app">
         <header>
-          <img src="../asset/harvey_birdman_wii.jpg" />
+          <img src={harvey} />
           <h1> CASEHAWK </h1>
           {util.renderIf(
             this.props.token,
