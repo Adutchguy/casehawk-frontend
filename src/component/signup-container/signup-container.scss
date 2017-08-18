@@ -12,7 +12,7 @@
     margin-left: .2vw;
     display: inline-block;
     position: absolute;
-    left: 0%;
+    left: 0vw;
   }
   .signup-username {
     height: 2.1vw;
@@ -20,7 +20,7 @@
     margin-left: .2vw;
     display: inline-block;
     position: absolute;
-    left: 13%;
+    left: 13vw;
   }
   .signup-password {
     height: 2.1vw;
@@ -28,7 +28,7 @@
     margin-left: .2vw;
     display: inline-block;
     position: absolute;
-    left: 26%;
+    left: 26vw;
   }
 
   .signup-cont-button {
@@ -38,7 +38,7 @@
     margin-left: .2vw;
     display: inline-block;
     position: absolute;
-    left: 39%;
+    left: 39vw;
   }
 
   .signup-cancel-x{
@@ -48,8 +48,8 @@
     font-size: 1vw;
     display: inline-block;
     position: absolute;
-    left: 47%;
-    top: 0%;
+    left: 47vw;
+    top: 0vw;
     color: rgba(#000000, 0.5);
     border: .5px solid black;
     &:hover{

@@ -9,7 +9,7 @@
     margin-left: .2vw;
     display: inline-block;
     position: absolute;
-    left: 0%;
+    left: 0vw;
   }
     .signin-password {
     height: 2.1vw;
@@ -17,7 +17,7 @@
     margin-left: .2vw;
     display: inline-block;
     position: absolute;
-    left: 13%;
+    left: 13vw;
   }
 
   .signin-cont-button {
@@ -27,7 +27,7 @@
     margin-left: .2vw;
     display: inline-block;
     position: absolute;
-    left: 26%;
+    left: 26vw;
   }
 
   .signin-cancel-x{
@@ -37,8 +37,8 @@
     font-size: 1vw;
     display: inline-block;
     position: absolute;
-    left: 34%;
-    top: 0%;
+    left: 34vw;
+    top: 0vw;
     color: rgba(#000000, 0.5);
     border: .5px solid black;
     &:hover{
