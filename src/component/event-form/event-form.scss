@@ -1,4 +1,4 @@
-// @import '../../style/_vars.scss';
+@import '../../style/_vars.scss';
 
 .event-form {
 	padding: $pad;
@@ -12,14 +12,6 @@
 	input {
 		height: 1.5em;
 		font-size: 0.8em;
-	}
-
-	#allday {
-		display: none;
-	}
-
-	#notify {
-		display: none;
 	}
 
 	button {
