@@ -5,18 +5,15 @@ import * as util from '../../lib/util.js';
 class EventUpdateForm extends React.Component {
   constructor(props){
     super(props);
-    console.log('PROPS', props);
     this.state = props.event
       ? {...this.state, ...props.event}
       : {};
-    console.log('LOCAL STATE', this.state);
+
+    console.log('STATE', this.state);
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-  }
-
-  componentDidUpdate(){
-    console.log('EVENT UPDATE FORM STATE', this.state);
+    this.handleDate = this.handleDate.bind(this);
   }
 
   componentWillReceiveProps(props){
@@ -40,6 +37,15 @@ class EventUpdateForm extends React.Component {
     this.props.onComplete(this.state);
   }
 
+  handleDate(date) {
+    let splitDate = date.toString().split(' ');
+    let ISOdate = date.toISOString();
+    let splitISODateOnTime = ISOdate.split('T')[0];
+    let T = 'T';
+    let newDate = `${splitISODateOnTime}${T}${splitDate[4]}`;
+    return newDate;
+  }
+
   render(){
     return (
       <form
@@ -54,6 +60,7 @@ class EventUpdateForm extends React.Component {
             id='start-date-time'
             name='start'
             onInput={this.handleChange}
+            value={this.handleDate(this.state.start)}
           />
         </p>
 
@@ -65,6 +72,7 @@ class EventUpdateForm extends React.Component {
             id='end-date-time'
             name='end'
             onInput={this.handleChange}
+            value={this.handleDate(this.state.end)}
           />
         </p>
 

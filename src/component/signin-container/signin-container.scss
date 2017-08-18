@@ -1,0 +1,48 @@
+.signin-container{
+  margin-top: 2vw;
+  position:relative;
+  width: 100vw;
+
+    .signin-username {
+    height: 2.1vw;
+    font-size: 1vw;
+    margin-left: .2vw;
+    display: inline-block;
+    position: absolute;
+    left: 0vw;
+  }
+    .signin-password {
+    height: 2.1vw;
+    font-size: 1vw;
+    margin-left: .2vw;
+    display: inline-block;
+    position: absolute;
+    left: 13vw;
+  }
+
+  .signin-cont-button {
+    width: 7vw;
+    height: 2.5vw;
+    font-size: 1vw;
+    margin-left: .2vw;
+    display: inline-block;
+    position: absolute;
+    left: 26vw;
+  }
+
+  .signin-cancel-x{
+    text-align: center;
+    width: 1vw;
+    height: 1vw;
+    font-size: 1vw;
+    display: inline-block;
+    position: absolute;
+    left: 34vw;
+    top: 0vw;
+    color: rgba(#000000, 0.5);
+    &:hover{
+      color: #000000;
+      cursor: pointer;
+    }
+  }
+}

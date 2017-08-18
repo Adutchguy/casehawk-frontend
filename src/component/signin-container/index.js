@@ -4,6 +4,8 @@ import {connect} from 'react-redux';
 import superagent from 'superagent';
 import * as util from '../../lib/util.js';
 import * as auth from '../../action/auth.js';
+import './signin-container.scss';
+import * as route from '../../action/route';
 
 class SigninContainer extends React.Component {
   constructor(props){
@@ -31,10 +33,11 @@ class SigninContainer extends React.Component {
 
   render(){
     return(
-      <div className='signin-container'>
-        <form onSubmit={this.handleSubmit}>
+      <div>
+        <form className='signin-container' onSubmit={this.handleSubmit}>
 
           <input
+            className='signin-username'
             name='username'
             type='text'
             placeholder='username'
@@ -43,6 +46,7 @@ class SigninContainer extends React.Component {
           />
 
           <input
+            className='signin-password'
             name='password'
             type='password'
             placeholder='password'
@@ -50,7 +54,12 @@ class SigninContainer extends React.Component {
             onChange={this.handleChange}
           />
 
-          <button type='submit'> signin </button>
+          <button className='signin-cont-button' type='submit'> sign-in </button>
+
+          <div
+            className="signin-cancel-x"
+            onClick={this.props.goToLanding}
+          >X</div>
         </form>
       </div>
     );
@@ -62,6 +71,7 @@ export const mapStateToProps = (state) => ({
 
 export const mapDispatchToProps = (dispatch) => ({
   signin: (user) => dispatch(auth.signinRequest(user)),
+  goToLanding: (user) => dispatch(route.switchRoute('/landing')),
 });
 
 export default connect (mapStateToProps, mapDispatchToProps)(SigninContainer);

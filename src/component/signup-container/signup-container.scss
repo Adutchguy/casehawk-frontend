@@ -1,0 +1,59 @@
+.signup-container{
+  margin-top: 2vw;
+  position:relative;
+  width: 100vw;
+
+  div {
+    display: inline-block;
+  }
+  .signup-email {
+    height: 2.1vw;
+    font-size: 1vw;
+    margin-left: .2vw;
+    display: inline-block;
+    position: absolute;
+    left: 0vw;
+  }
+  .signup-username {
+    height: 2.1vw;
+    font-size: 1vw;
+    margin-left: .2vw;
+    display: inline-block;
+    position: absolute;
+    left: 13vw;
+  }
+  .signup-password {
+    height: 2.1vw;
+    font-size: 1vw;
+    margin-left: .2vw;
+    display: inline-block;
+    position: absolute;
+    left: 26vw;
+  }
+
+  .signup-cont-button {
+    width: 7vw;
+    height: 2.5vw;
+    font-size: 1vw;
+    margin-left: .2vw;
+    display: inline-block;
+    position: absolute;
+    left: 39vw;
+  }
+
+  .signup-cancel-x{
+    text-align: center;
+    width: 1vw;
+    height: 1vw;
+    font-size: 1vw;
+    display: inline-block;
+    position: absolute;
+    left: 47vw;
+    top: 0vw;
+    color: rgba(#000000, 0.5);
+    &:hover{
+      color: #000000;
+      cursor: pointer;
+    }
+  }
+}

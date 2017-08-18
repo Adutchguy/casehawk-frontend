@@ -1,11 +1,13 @@
 import React from 'react';
 import * as _ from 'lodash';
-import { connect } from 'react-redux';
+import validator from 'validator';
 import superagent from 'superagent';
+import EventForm from '../event-form';
+import { connect } from 'react-redux';
 import * as util from '../../lib/util.js';
 import * as auth from '../../action/auth.js';
-import validator from 'validator';
-import EventForm from '../event-form';
+import './signup-container.scss';
+import * as route from '../../action/route';
 
 const Tooltip = props => {
   return (
@@ -31,18 +33,7 @@ export class SignupContainer extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.validateChange = this.validateChange.bind(this);
-    // this.usernameCheckAvailable = _.debounce(
-    //   this.usernameCheckAvailable.bind(this),
-    //   250
-    // );
   }
-
-  // usernameCheckAvailable() {
-  //   return superagent
-  //     .get(`${__API_URL__}/usernames/${this.state.username}`)
-  //     .then(() => this.setState({ usernameAvailable: true }))
-  //     .catch(() => this.setState({ usernameAvailable: false }));
-  // }
 
   handleSubmit(e) {
     e.preventDefault();
@@ -84,7 +75,6 @@ export class SignupContainer extends React.Component {
         error = 'password can only contain letters and numbers';
       }
     }
-    console.log('error', error);
     this.setState({ [`${name}Error`]: error });
   }
 
@@ -92,15 +82,15 @@ export class SignupContainer extends React.Component {
     this.validateChange({ ...e });
     let { name, value } = e.target;
     this.setState({ [name]: value });
-    // if (name === 'username') this.usernameCheckAvailable();
   }
 
   render() {
     return (
-      <div className="signup-container">
-        <form onSubmit={this.handleSubmit}>
+      <div>
+        <form className="signup-container" onSubmit={this.handleSubmit}>
           <Tooltip message={this.state.emailError} />
           <input
+            className='signup-email'
             name="email"
             type="email"
             placeholder="email"
@@ -109,6 +99,7 @@ export class SignupContainer extends React.Component {
           />
           <Tooltip message={this.state.usernameError} />
           <input
+            className='signup-username'
             name="username"
             type="text"
             placeholder="username"
@@ -118,6 +109,7 @@ export class SignupContainer extends React.Component {
 
           <Tooltip message={this.state.passwordError} />
           <input
+            className='signup-password'
             name="password"
             type="password"
             placeholder="password"
@@ -125,7 +117,13 @@ export class SignupContainer extends React.Component {
             onChange={this.handleChange}
           />
 
-          <button type="submit"> signup </button>
+          <button className='signup-cont-button' type="submit"> sign-up </button>
+
+          <div
+            className="signup-cancel-x"
+            onClick={this.props.goToLanding}
+          >X</div>
+
         </form>
       </div>
     );
@@ -136,6 +134,7 @@ export const mapStateToProps = state => ({});
 
 export const mapDispatchToProps = dispatch => ({
   signup: user => dispatch(auth.signupRequest(user)),
+  goToLanding: () => dispatch(route.switchRoute('/landing')),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(SignupContainer);

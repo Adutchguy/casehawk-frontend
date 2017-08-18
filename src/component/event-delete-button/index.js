@@ -13,10 +13,6 @@ class EventDeleteButton extends React.Component {
     this.handleClick = this.handleClick.bind(this);
   }
 
-  componentDidUpdate(){
-    console.log('EVENT DELETE BUTTON STATE', this.state);
-  }
-
   componentWillReceiveProps(props){
     if(props.event)
       this.setState(props.event);
