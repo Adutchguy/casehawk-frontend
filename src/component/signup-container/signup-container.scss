@@ -1,21 +1,61 @@
 .signup-container{
-  text-align: center;
-  margin-top: 2em;
+  margin-top: 2vw;
+  position:relative;
+  width: 100vw;
 
   div {
     display: inline-block;
   }
-    .signup-cont-button{
-    width: 7em;
-    height: 2.5em;
-    font-size: 1em;
-    margin-left: .2em;
-
+  .signup-email {
+    height: 2.1vw;
+    font-size: 1vw;
+    margin-left: .2vw;
+    display: inline-block;
+    position: absolute;
+    left: 0vw;
+  }
+  .signup-username {
+    height: 2.1vw;
+    font-size: 1vw;
+    margin-left: .2vw;
+    display: inline-block;
+    position: absolute;
+    left: 13vw;
+  }
+  .signup-password {
+    height: 2.1vw;
+    font-size: 1vw;
+    margin-left: .2vw;
+    display: inline-block;
+    position: absolute;
+    left: 26vw;
   }
 
-  input{
-    height: 2.1em;
-    font-size: 1em;
-    margin-left: .2em;
+  .signup-cont-button {
+    width: 7vw;
+    height: 2.5vw;
+    font-size: 1vw;
+    margin-left: .2vw;
+    display: inline-block;
+    position: absolute;
+    left: 39vw;
+  }
+
+  .signup-cancel-x{
+    text-align: center;
+    width: 1vw;
+    height: 1vw;
+    font-size: 1vw;
+    display: inline-block;
+    position: absolute;
+    left: 47vw;
+    top: 0vw;
+    color: rgba(#000000, 0.5);
+    border: .5px solid black;
+    &:hover{
+      color: #000000;
+      border: none;
+      cursor: pointer;
+    }
   }
 }

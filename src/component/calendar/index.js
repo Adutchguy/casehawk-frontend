@@ -5,7 +5,6 @@ import {eventCreateRequest, eventReadRequest} from '../../action/event.js';
 import moment from 'moment';
 
 let allViews = Object.keys(BigCalendar.views).map(k => BigCalendar.views[k]);
-console.log('views', BigCalendar.views);
 
 BigCalendar.setLocalizer(
   BigCalendar.momentLocalizer(moment)
@@ -21,7 +20,6 @@ let Basic = React.createClass({
   },
 
   render(){
-    console.log('props', this.props);
     return (
       <BigCalendar
         {...this.props}
