@@ -17,10 +17,11 @@ button.rbc-input::-moz-focus-inner {
   padding: 0;
 }
 .rbc-calendar {
+  overflow: scroll;
   position: absolute;
   top: 10em;
   box-sizing: border-box;
-  height: 100%;
+  height: 75%;
   width: 67%;
   display: -ms-flexbox;
   display: flex;
